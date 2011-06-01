@@ -1,0 +1,27 @@
+
+<h1>Playing: <?php echo htmlentities($game->name); ?></h1>
+<a id="stop-game" href="#stop-game">Stop Game</a>
+
+<section id="table"></section>
+<ul id="players">
+    <li id="player-base"></li>
+</ul>
+
+
+<script type="text/javascript">
+(function(){
+    $('#stop-game').click(function(e){
+        e.preventDefault();
+
+        if (confirm("Are you sure you want to stop the current game?")) {
+            $.post('/ajax.php?action=stop-game', function(data){
+                if (data.status == 'error') {
+                    $.trigger('ajax.error', [data]);
+                } else if (data.status == 'success') {
+                    window.location.href = '/';
+                }
+            }, 'json');
+        }
+    });
+})();
+</script>

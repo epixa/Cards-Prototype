@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Error - Epixa Cards Prototype</title>
+
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+
+    <style type="text/css">
+        textarea.debug {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font: 14px menlo, courier, monospace;
+            height: 300px;
+            padding: 10px;
+            width: 978px;
+        }
+
+        textarea#params {
+            height: 175px;
+        }
+    </style>
+</head>
+<body>
+    <?php require 'partials/header.phtml'; ?>
+
+    <section>
+        <h1>An error has occurred</h1>
+        <p>We've encountered an application error that has prevented your request from completing.</p>
+    </section>
+
+<?php if (isset($exception) && $exception instanceof Exception): ?>
+<section>
+<h3>Exception:</h3>
+<textarea class="debug" id="exception">Message: <?php echo $exception->getMessage() . "\n"; ?>
+File: <?php echo $exception->getFile() . "\n"; ?>
+Code: <?php echo $exception->getCode() . "\n"; ?>
+Line: <?php echo $exception->getLine() . "\n"; ?>
+Trace: <?php print_r($exception->getTrace()); ?>
+</textarea>
+
+<h3>Parameters:</h3>
+<textarea class="debug" id="params">
+GET:
+<?php print_r($_GET); ?>
+
+POST:
+<?php print_r($_POST); ?>
+<?php if (isset($_SESSION)): ?>
+
+SESSION:
+<?php print_r($_SESSION); ?>
+<?php endif; ?>
+</textarea>
+</section>
+<?php endif; ?>
+
+</body>
+</html>

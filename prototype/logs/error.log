@@ -1,0 +1,178 @@
+2011/05/31 22:50:13 [error] 5459#0: *228 FastCGI sent in stderr: "PHP Warning:  file_get_contents(/Users/Court/Projects/Cards/prototype/src/data/game) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 7
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. file_get_contents() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:7
+PHP Notice:  Undefined variable: gameFile in /Users/Court/Projects/Cards/prototype/src/actions/start-game.php on line 9
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23
+PHP Warning:  file_put_contents() [<a href='function.file-put-contents'>function.file-put-contents</a>]: Filename cannot be empty in /Users/Court/Projects/Cards/prototype/src/actions/start-game.php on line 9
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23
+PHP   3. file_put_contents() /Users/Court/Projects/Cards/prototype/src/actions/start-game.php:9" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=start-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 22:51:15 [error] 5459#0: *228 FastCGI sent in stderr: "PHP Warning:  file_get_contents(/Users/Court/Projects/Cards/prototype/src/data/game) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 7
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. file_get_contents() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:7
+PHP Warning:  file_put_contents(/Users/Court/Projects/Cards/prototype/src/data/game) [<a href='function.file-put-contents'>function.file-put-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/actions/start-game.php on line 9
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23
+PHP   3. file_put_contents() /Users/Court/Projects/Cards/prototype/src/actions/start-game.php:9" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=start-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 22:51:58 [error] 5459#0: *228 FastCGI sent in stderr: "PHP Warning:  file_get_contents(/Users/Court/Projects/Cards/prototype/src/data/game) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 7
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. file_get_contents() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:7
+PHP Warning:  file_put_contents(/Users/Court/Projects/Cards/prototype/src/data/game) [<a href='function.file-put-contents'>function.file-put-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/actions/start-game.php on line 9
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23
+PHP   3. file_put_contents() /Users/Court/Projects/Cards/prototype/src/actions/start-game.php:9" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=start-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 22:53:52 [error] 5459#0: *247 FastCGI sent in stderr: "PHP Warning:  touch() [<a href='function.touch'>function.touch</a>]: Unable to create file /Users/Court/Projects/Cards/prototype/src/data/game because No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 7
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. touch() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:7
+PHP Warning:  file_get_contents(/Users/Court/Projects/Cards/prototype/src/data/game) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 10
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. file_get_contents() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:10
+PHP Warning:  file_put_contents(/Users/Court/Projects/Cards/prototype/src/data/game) [<a href='function.file-put-contents'>function.file-put-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/actions/start-game.php on line 9
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23
+PHP   3. file_put_contents() /Users/Court/Projects/Cards/prototype/src/actions/start-game.php:9" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=start-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 22:54:40 [error] 5459#0: *247 FastCGI sent in stderr: "PHP Warning:  touch() [<a href='function.touch'>function.touch</a>]: Unable to create file /Users/Court/Projects/Cards/prototype/data/game because Permission denied in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 7
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. touch() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:7
+PHP Warning:  file_get_contents(/Users/Court/Projects/Cards/prototype/data/game) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 10
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. file_get_contents() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:10" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=start-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 22:55:08 [error] 5459#0: *247 FastCGI sent in stderr: "PHP Warning:  touch() [<a href='function.touch'>function.touch</a>]: Unable to create file /Users/Court/Projects/Cards/prototype/data/game because Permission denied in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 7
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. touch() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:7
+PHP Warning:  file_get_contents(/Users/Court/Projects/Cards/prototype/data/game) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 10
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. file_get_contents() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:10" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=start-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 22:55:09 [error] 5459#0: *247 FastCGI sent in stderr: "PHP Warning:  touch() [<a href='function.touch'>function.touch</a>]: Unable to create file /Users/Court/Projects/Cards/prototype/data/game because Permission denied in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 7
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. touch() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:7
+PHP Warning:  file_get_contents(/Users/Court/Projects/Cards/prototype/data/game) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/src/bootstrap.php on line 10
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:20
+PHP   3. file_get_contents() /Users/Court/Projects/Cards/prototype/src/bootstrap.php:10" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=start-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 22:57:22 [error] 5459#0: *258 FastCGI sent in stderr: "PHP Notice:  Undefined variable: dataFile in /Users/Court/Projects/Cards/prototype/src/actions/stop-game.php on line 3
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23
+PHP Warning:  unlink() [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /Users/Court/Projects/Cards/prototype/src/actions/stop-game.php on line 3
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23
+PHP   3. unlink() /Users/Court/Projects/Cards/prototype/src/actions/stop-game.php:3" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=stop-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/05/31 23:01:23 [error] 5459#0: *269 FastCGI sent in stderr: "PHP Notice:  Undefined variable: game in /Users/Court/Projects/Cards/prototype/src/actions/get-game.php on line 3
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/ajax.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/ajax.php:23" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /ajax.php?action=get-game HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:34:03 [error] 295#0: *1 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:34:03 [error] 295#0: *1 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:50:29 [error] 388#0: *7 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:50:29 [error] 388#0: *7 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:50:44 [error] 388#0: *12 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:50:44 [error] 388#0: *12 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:52:21 [error] 388#0: *19 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:52:21 [error] 388#0: *19 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:52:47 [error] 388#0: *25 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:52:47 [error] 388#0: *25 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:53:38 [error] 388#0: *19 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 12:53:38 [error] 388#0: *19 kevent() reported about an closed connection (61: Connection refused) while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 16:43:58 [error] 598#0: *105 FastCGI sent in stderr: "PHP Notice:  Undefined variable: actionPath in /Users/Court/Projects/Cards/prototype/public/index.php on line 22
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Warning:  require() [<a href='function.require'>function.require</a>]: Filename cannot be empty in /Users/Court/Projects/Cards/prototype/public/index.php on line 22
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '' (include_path='.:/usr/local/Cellar/php/5.3.6/lib/php') in /Users/Court/Projects/Cards/prototype/public/index.php on line 22
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 16:43:58 [error] 598#0: *105 FastCGI sent in stderr: "PHP Notice:  Undefined variable: actionPath in /Users/Court/Projects/Cards/prototype/public/index.php on line 22
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Warning:  require() [<a href='function.require'>function.require</a>]: Filename cannot be empty in /Users/Court/Projects/Cards/prototype/public/index.php on line 22
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '' (include_path='.:/usr/local/Cellar/php/5.3.6/lib/php') in /Users/Court/Projects/Cards/prototype/public/index.php on line 22
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 16:47:16 [error] 598#0: *105 FastCGI sent in stderr: "PHP Notice:  Undefined variable: _SESSION in /Users/Court/Projects/Cards/prototype/templates/error.phtml on line 45
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:28" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 16:47:16 [error] 598#0: *105 FastCGI sent in stderr: "PHP Notice:  Undefined variable: _SESSION in /Users/Court/Projects/Cards/prototype/templates/error.phtml on line 45
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:28" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 16:47:34 [error] 598#0: *105 FastCGI sent in stderr: "PHP Notice:  Undefined variable: _SESSION in /Users/Court/Projects/Cards/prototype/templates/error.phtml on line 45
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:28" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 16:47:34 [error] 598#0: *105 FastCGI sent in stderr: "PHP Notice:  Undefined variable: _SESSION in /Users/Court/Projects/Cards/prototype/templates/error.phtml on line 45
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:28" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:14:55 [error] 598#0: *195 FastCGI sent in stderr: "PHP Warning:  require(/Users/Court/Projects/Cards/prototype/templates/1.phtml) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/Users/Court/Projects/Cards/prototype/templates/1.phtml' (include_path='.:/usr/local/Cellar/php/5.3.6/lib/php') in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:14:55 [error] 598#0: *195 FastCGI sent in stderr: "PHP Warning:  require(/Users/Court/Projects/Cards/prototype/templates/1.phtml) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/Users/Court/Projects/Cards/prototype/templates/1.phtml' (include_path='.:/usr/local/Cellar/php/5.3.6/lib/php') in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:15:26 [error] 598#0: *195 FastCGI sent in stderr: "PHP Warning:  require(/Users/Court/Projects/Cards/prototype/templates/1.phtml) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/Users/Court/Projects/Cards/prototype/templates/1.phtml' (include_path='.:/usr/local/Cellar/php/5.3.6/lib/php') in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:15:26 [error] 598#0: *195 FastCGI sent in stderr: "PHP Warning:  require(/Users/Court/Projects/Cards/prototype/templates/1.phtml) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/Users/Court/Projects/Cards/prototype/templates/1.phtml' (include_path='.:/usr/local/Cellar/php/5.3.6/lib/php') in /Users/Court/Projects/Cards/prototype/public/index.php on line 27
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:23:47 [error] 598#0: *227 FastCGI sent in stderr: "PHP Notice:  Undefined variable: test in /Users/Court/Projects/Cards/prototype/templates/default.phtml on line 1
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:27" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:23:47 [error] 598#0: *220 FastCGI sent in stderr: "PHP Notice:  Undefined variable: test in /Users/Court/Projects/Cards/prototype/templates/default.phtml on line 1
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:27" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:23:58 [error] 598#0: *221 FastCGI sent in stderr: "PHP Notice:  Undefined variable: test in /Users/Court/Projects/Cards/prototype/templates/default.phtml on line 1
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:27" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
+2011/06/01 17:23:58 [error] 598#0: *220 FastCGI sent in stderr: "PHP Notice:  Undefined variable: test in /Users/Court/Projects/Cards/prototype/templates/default.phtml on line 1
+PHP Stack trace:
+PHP   1. {main}() /Users/Court/Projects/Cards/prototype/public/index.php:0
+PHP   2. require() /Users/Court/Projects/Cards/prototype/public/index.php:27" while reading response header from upstream, client: 127.0.0.1, server: cards-prototype.epixa, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "cards-prototype.epixa"
