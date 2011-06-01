@@ -31,7 +31,7 @@ try {
             'line' => $e->getLine(),
             'trace' => $e->getTraceAsString()
         ),
-        'get' => $_POST + $_GET
+        'params' => $_POST + $_GET
     );
 }
 
