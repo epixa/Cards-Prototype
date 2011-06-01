@@ -16,7 +16,7 @@
         if (confirm("Are you sure you want to stop the current game?")) {
             $.post('/ajax.php?action=stop-game', function(data){
                 if (data.status == 'error') {
-                    $.trigger('ajax.error', [data]);
+                    $(document).trigger('ajax.error', [data]);
                 } else if (data.status == 'success') {
                     window.location.href = '/';
                 }

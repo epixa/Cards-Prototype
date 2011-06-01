@@ -5,3 +5,5 @@ app/logs/*
 build/
 vendor/
 .idea/
+prototype/data/*
+prototype/logs/*
