@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         $identity = new stdClass();
-        $identity->id = sha1(uniqid() . microtime());
+        $identity->id = sha1(uniqid() . microtime() . $name);
         $identity->name = $name;
         
         $_SESSION['identity'] = $identity;
