@@ -30,6 +30,16 @@
             alert('Someone has stopped the current game');
             window.location.href = '/';
         } else {
+            var microtime = new Date().getTime() / 1000;
+
+            for (var x in data.game.players) {
+                if (!data.game.players[x].isActive) {
+                    console.log(data.game.players[x].name + ' is not active');
+                }
+            }
+
+            console.log('total players: ' + data.game.totalPlayers);
+            
             originalCallback(data);
         }
     };
