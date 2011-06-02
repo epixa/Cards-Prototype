@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Authenticate - Epixa Cards Prototype</title>
+
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+
+    <script src="/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+    <script src="/js/chain.js" type="text/javascript"></script>
+    <script src="/js/global.js" type="text/javascript"></script>
+</head>
+<body>
+    <?php require 'partials/header.phtml'; ?>
+
+    <section>
+        <form method="post" action="">
+            <fieldset>
+                <legend>Who are you, anyway?</legend>
+                
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" value="<?php echo htmlentities($name); ?>" />
+                
+                <input type="submit" value="Submit" />
+
+                <?php if ($error): ?>
+                    <span class="form-error"><?php echo htmlentities($error); ?></span>
+                <?php endif; ?>
+            </fieldset>
+        </form>
+    </section>
+</body>
+</html>
