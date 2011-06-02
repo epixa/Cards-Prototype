@@ -29,4 +29,6 @@ if ($game) {
     file_put_contents($gameFile, json_encode($game));
 }
 
+$totalPlayers = $game->totalPlayers;
+
 return 'default';

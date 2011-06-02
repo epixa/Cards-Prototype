@@ -1,5 +1,6 @@
 
 <h1>Playing: <?php echo htmlentities($game->name); ?></h1>
+<div>Total players: <span id="total-players"><?php echo (int)$totalPlayers; ?></span></div>
 <a id="stop-game" href="#stop-game">Stop Game</a>
 
 <section id="table"></section>
@@ -38,7 +39,7 @@
                 }
             }
 
-            console.log('total players: ' + data.game.totalPlayers);
+            $('#total-players').html(data.game.totalPlayers);
             
             originalCallback(data);
         }
