@@ -7,14 +7,16 @@ if (!file_exists($gameFile)) {
     touch($gameFile);
 }
 
-$game = file_get_contents($gameFile);
-if ($game === false) {
+$encodedGame = file_get_contents($gameFile);
+if ($encodedGame === false) {
     throw new LogicException('Failed to load game data');
 }
 
-if (!empty($game)) {
-    $game = json_decode($game);
+if (!empty($encodedGame)) {
+    $game = json_decode($encodedGame);
     if ($game === null) {
+        $debugParams = array('game-data' => $encodedGame);
+        unlink($gameFile);
         throw new LogicException('Game data could not be decoded');
     }
 } else {

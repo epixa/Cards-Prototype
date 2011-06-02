@@ -41,6 +41,11 @@ Trace: <?php print_r($exception->getTrace()); ?>
 
 <h3>Parameters:</h3>
 <textarea class="debug" id="params">
+<?php if (isset($debugParams)): ?>
+DEBUG:
+<?php print_r($debugParams); ?>
+
+<?php endif; ?>
 GET:
 <?php print_r($_GET); ?>
 

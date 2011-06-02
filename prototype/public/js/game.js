@@ -58,18 +58,27 @@ window.game = window.game | {};
             setTimeout(self.loadGameData, self.pollingDuration);
         };
 
-        self.setTable = function(table){
-            self.table = table;
+        self.hasPlayer = function(id){
+            return self.players[id] !== undefined;
         };
 
-        self.addPlayer = function(player){
-            self.players[player.id] = player;
+        self.addPlayer = function(data, container){
+            self.players[data.id] = new game.Player(data, container);
         };
 
-        self.startGame = function(game){
-            console.log('here');
-            self.currentGame = game;
+        self.getPlayer = function(id){
+            if (!self.hasPlayer(id)) {
+                throw new Error('Player ' + id + 'does not exist');
+            }
+            
+            return self.players[id];
         };
+
+        self.removePlayer = function(id){
+            var player = self.getPlayer(id);
+            player.container.remove();
+            delete self.players[id];
+        }
     };
 
     game.Table =  function(container) {
@@ -82,15 +91,40 @@ window.game = window.game | {};
         };
     };
 
-    game.Player = function(container) {
+    game.Player = function(data, container) {
         var self = this;
 
-        self.id = container.attr('id').substr(7);
-        self.cards = {};
-
-        self.addCard = function(card){
-            self.cards[card.id] = card;
+        self.data = {
+            id : null,
+            name : null,
+            isActive : null,
+            lastActivity : null
         };
+        self.container = container;
+
+        self.populate = function(data, callback){
+            for (var key in self.data) {
+                if (data[key] != undefined) {
+                    self.data[key] = data[key];
+                }
+            }
+
+            self.container.attr('id', 'player-' + self.data.id);
+            self.container.html(self.data.name);
+
+            console.log(self.data.id + ' ' + self.data.lastActivity);
+
+            self.container.removeClass('inactive');
+            if (!self.isActive()) {
+                self.container.addClass('inactive');
+            }
+        };
+
+        self.isActive = function(){
+            return self.data.isActive == true;
+        };
+
+        self.populate(data);
     };
 
     game.Card = function(container, suit, value) {

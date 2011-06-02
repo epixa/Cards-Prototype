@@ -75,3 +75,7 @@ section > section {
     padding:  10px;
     width: 200px;
 }
+
+#players .player.inactive {
+    border-color: red;
+}

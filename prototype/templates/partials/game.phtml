@@ -5,12 +5,16 @@
 
 <section id="table"></section>
 <ul id="players">
-    <li id="player-base"></li>
+    <li class="player" id="player-base"></li>
 </ul>
 
 
 <script type="text/javascript">
 (function(){
+    var players = $('#players');
+    var basePlayer = $('#player-base').clone();
+    $('#player-base').remove();
+
     $('#stop-game').click(function(e){
         e.preventDefault();
 
@@ -31,11 +35,21 @@
             alert('Someone has stopped the current game');
             window.location.href = '/';
         } else {
-            var microtime = new Date().getTime() / 1000;
-
             for (var x in data.game.players) {
-                if (!data.game.players[x].isActive) {
-                    console.log(data.game.players[x].name + ' is not active');
+                var player = data.game.players[x];
+
+                if (!room.hasPlayer(player.id)) {
+                    var container = basePlayer.clone();
+                    players.append(container);
+                    room.addPlayer(player, container);
+                } else {
+                    room.getPlayer(player.id).populate(player);
+                }
+            }
+
+            for (var id in room.players) {
+                if (!(id in data.game.players)) {
+                    room.removePlayer(id);
                 }
             }
 
