@@ -11,6 +11,9 @@
     <script src="/js/global.js" type="text/javascript"></script>
     <script src="/js/game.js" type="text/javascript"></script>
     <script src="/js/game.river.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var room = new game.Room('/ajax.php?action=get-game');
+    </script>
 </head>
 <body>
     <?php require 'partials/header.phtml'; ?>
@@ -27,6 +30,7 @@
 
     <script type="text/javascript">
         (function($){
+            //room.beginPolling();
             //var room = game.roomFactory($('#room'), $('#table'), $('#players'));
             //room.startGame(new game.river.Game());
 

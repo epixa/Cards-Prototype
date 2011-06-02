@@ -20,5 +20,16 @@
                 }
             }, 'json');
         });
+
+        var originalCallback = room.loadGameDataCallback;
+        room.loadGameDataCallback = function(data){
+            if (data.game) {
+                alert('Someone has started a new game');
+                window.location.href = '/';
+            } else {
+                originalCallback(data);
+            }
+        };
+        room.beginPolling();
     })();
 </script>

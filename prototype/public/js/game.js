@@ -36,12 +36,27 @@ window.game = window.game | {};
         }
     };
 
-    game.Room = function(container) {
+    game.Room = function(url) {
         var self = this;
 
         self.table = null;
         self.players = {};
-        self.currentGame = null;
+        self.game = null;
+        self.url = url;
+        self.pollingDuration = 5000;
+
+        self.beginPolling = function(){
+            self.loadGameData();
+        };
+
+        self.loadGameData = function(){
+            $.getJSON(self.url, self.loadGameDataCallback);
+        };
+
+        self.loadGameDataCallback = function(data){
+            console.log(data);
+            setTimeout(self.loadGameData, self.pollingDuration);
+        };
 
         self.setTable = function(table){
             self.table = table;
