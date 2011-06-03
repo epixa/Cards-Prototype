@@ -3,7 +3,35 @@
 <div>Total players: <span id="total-players"><?php echo (int)$totalPlayers; ?></span></div>
 <a id="stop-game" href="#stop-game">Stop Game</a>
 
-<section id="table"></section>
+
+<section id="table">
+    <span class="seat" style="top:5px; left: 130px;">p7</span>
+    <span class="seat" style="top:5px; left: 302px;">p3</span>
+    <span class="seat" style="top:5px; left: 475px;">p8</span>
+    <span class="seat" style="top:410px; left: 130px;">p9</span>
+    <span class="seat" style="top:410px; left: 302px;">p4</span>
+    <span class="seat" style="top:410px; left: 475px;">p10</span>
+    
+    <span class="sideSeat" style="top:100px; left: 5px;">p1</span>
+    <span class="sideSeat" style="top:230px; left: 5px;">p5</span>
+    <span class="sideSeat" style="top:100px; left: 662px;">p2</span>
+    <span class="sideSeat" style="top:230px; left: 662px;">p6</span>
+
+    <span class="card" style="top:184px; left: 180px;">1</span>
+    <span class="card" style="top:184px; left: 270px;">2</span>
+    <span class="card" style="top:184px; left: 360px;">3</span>
+    <span class="card" style="top:184px; left: 450px;">4</span>
+    <span class="card" style="top:234px; left: 180px;">5</span>
+    <span class="card" style="top:234px; left: 270px;">6</span>
+    <span class="card" style="top:234px; left: 360px;">7</span>
+    <span class="card" style="top:234px; left: 450px;">8</span>
+</section>
+<script type="text/javascript">
+    $('.card').click(function(){
+        alert('You clicked numero: ' + this.innerHTML);
+    })
+</script>
+
 <ul id="players">
     <li class="player" id="player-base"></li>
 </ul>

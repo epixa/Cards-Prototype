@@ -76,6 +76,36 @@ section > section {
     border: 6px solid #a39e43;
 }
 
+.seat {
+    text-align: center;
+    display:block;
+    width: 100px;
+    height: 30px;
+    background-color: #f03330;
+    border: 1px solid #ddd;
+    position: absolute;
+}
+
+.sideSeat {
+    text-align: center;
+    display:block;
+    width: 30px;
+    height: 100px;
+    background-color: #f03330;
+    border: 1px solid #ddd;
+    position: absolute;
+}
+
+.card {
+    text-align: center;
+    display:block;
+    width: 65px;
+    height: 30px;
+    background-color: #f03330;
+    border: 1px solid #ddd;
+    position: absolute;
+}
+
 #players {
     left: 725px;
     list-style: none;
