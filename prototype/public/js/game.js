@@ -9,9 +9,7 @@ window.game = window.game || {};
     game.Room = function(url) {
         var self = this;
 
-        self.table = null;
         self.players = {};
-        self.game = null;
         self.url = url;
         self.pollingDuration = 5000;
 
@@ -38,7 +36,7 @@ window.game = window.game || {};
          * @param data The game data
          */
         self.loadGameDataCallback = function(data){
-            console.log(data);
+            console.log(data.game);
             setTimeout(self.loadGameData, self.pollingDuration);
         };
 
