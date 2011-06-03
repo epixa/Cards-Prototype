@@ -53,16 +53,31 @@ section > section {
 
 #table {
     border:  1px solid black;
-    border-radius: 300px;
-    height: 550px;
+    border-radius: 100px;
+    height: 450px;
     left: 50px;
     position: absolute;
-    top: 40px;
-    width: 550px;
+    top: 60px;
+    width: 700px;
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right bottom,
+        color-stop(0.3, rgb(5,71,5)),
+        color-stop(0.65, rgb(10,130,10)),
+        color-stop(0.83, rgb(7,77,9))
+    );
+    background-image: -moz-linear-gradient(
+        left top,
+        rgb(5,71,5) 30%,
+        rgb(10,130,10) 65%,
+        rgb(7,77,9) 83%
+    );
+    border: 6px solid #a39e43;
 }
 
 #players {
-    left: 650px;
+    left: 725px;
     list-style: none;
     position: absolute;
     top: 40;
