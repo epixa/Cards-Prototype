@@ -3,6 +3,8 @@
 <div>Total players: <span id="total-players"><?php echo (int)$totalPlayers; ?></span></div>
 <a id="stop-game" href="#stop-game">Stop Game</a>
 
+<a id="deal" href="#deal">Deal</a>
+
 
 <section id="table">
     <span class="seat" style="top:5px; left: 130px;">p7</span>
@@ -57,11 +59,6 @@
         }
     });
 
-    $(document).bind('game.Game.postAddPlayer', function(event, player){
-        player.setContainer(basePlayer.clone());
-        players.append(player.container);
-    });
-
     $(document).bind('game.Player.postSetContainer', function(event, player){
         player.container.attr('id', 'player-' + player.id);
         player.container.html(player.data.name);
@@ -76,13 +73,18 @@
         }
     });
 
+    $(document).bind('game.Game.postAddPlayer', function(event, player){
+        player.setContainer(basePlayer.clone());
+        players.append(player.container);
+    });
+
     $(document).bind('game.Game.preRemovePlayer', function(event, player){
         if (player.container) {
             player.container.remove();
         }
     });
 
-    $(document).bind('game.Manager.postPollGame', function(event, game){
+    $(document).bind('game.Game.postPopulate', function(event, game){
         $('#total-players').html(game.totalPlayers);
     });
 
@@ -91,6 +93,14 @@
         window.location.href = '/';
     });
 
-    manager.pollGame('/ajax.php?action=get-game');
+    manager.loadGame('/ajax.php?action=init-game', function(){
+        manager.beginGamePolling('/ajax.php?action=get-game');
+    });
+
+    $('#deal').click(function(e){
+        e.preventDefault();
+
+        river.deal();
+    });
 })();
 </script>

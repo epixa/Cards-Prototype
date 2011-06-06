@@ -16,6 +16,38 @@ window.game = window.game || {};
         self.pollingDuration = pollingDuration || 5000;
 
         /**
+         * Loads all of the game data and executes the given callback on success
+         * 
+         * @param url
+         * @param callback
+         */
+        self.loadGame = function(url, callback){
+            $.getJSON(url, function(data){
+                if (data.status == 'error') {
+                    $(document).trigger('ajax.error', [data]);
+                } else if (data.status == 'success') {
+                    self.game.populate(data.game);
+
+                    if (callback) {
+                        callback();
+                    }
+                }
+            });
+        };
+
+        /**
+         * Begins the polling sequence for game data
+         *
+         * Game data is assumed to have already been loaded, so first poll occurs after
+         * a duration equal to pollingDuration property.
+         *
+         * @param url
+         */
+        self.beginGamePolling = function(url){
+            setTimeout(self.pollGame, self.pollingDuration, url);
+        };
+
+        /**
          * Polls for data at the given url
          *
          * On success, the given callback is executed.  Polling occurs at an interval determined by
@@ -52,28 +84,7 @@ window.game = window.game || {};
                     return false;
                 }
 
-                console.log(data.game);
-
-                for (var x in data.game.players) {
-                    var player = data.game.players[x];
-
-                    if (!self.game.hasPlayer(player.id)) {
-                        self.game.addPlayer(player);
-                    } else {
-                        self.game.getPlayer(player.id).populate(player);
-                    }
-                }
-
-                for (var id in self.game.players) {
-                    if (!(id in data.game.players)) {
-                        self.game.removePlayer(id);
-                    }
-                }
-
-                self.game.state = data.game.state;
-                self.game.details = data.game.details;
-
-                $(document).trigger('game.Manager.postPollGame', [self.game]);
+                self.game.populate(data.game);
 
                 return true;
             });
@@ -110,7 +121,40 @@ window.game = window.game || {};
         self.players = {};
         self.state = {};
         self.details = {};
+        self.resources = {};
         self.totalPlayers = 0;
+
+        /**
+         * Populates all of the game properties from the given data
+         * 
+         * @param game
+         */
+        self.populate = function(game){
+            for (var x in game.players) {
+                var player = game.players[x];
+
+                if (!self.hasPlayer(player.id)) {
+                    self.addPlayer(player);
+                } else {
+                    self.getPlayer(player.id).populate(player);
+                }
+            }
+
+            for (var id in self.players) {
+                if (!(id in game.players)) {
+                    self.removePlayer(id);
+                }
+            }
+
+            self.state = game.state;
+            self.details = game.details;
+
+            if (game.resources) {
+                self.resources = game.resources;
+            }
+
+            $(document).trigger('game.Game.postPopulate', [self]);
+        };
 
         /**
          * Determines if the game has a player identified by the given id

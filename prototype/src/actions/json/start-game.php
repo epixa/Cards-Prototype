@@ -6,8 +6,6 @@ $game->details = new stdClass();
 $game->details->name = 'Up and Down the River';
 $game->details->code = 'river';
 
-$game->resources = new stdClass();
-
 $game->players = new stdClass();
 
 $game->state = new stdClass();

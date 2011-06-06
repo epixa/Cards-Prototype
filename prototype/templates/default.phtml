@@ -9,8 +9,11 @@
     <script src="/js/jquery-1.6.1.min.js" type="text/javascript"></script>
     <script src="/js/global.js" type="text/javascript"></script>
     <script src="/js/game.js" type="text/javascript"></script>
+    <script src="/js/game.river.js" type="text/javascript"></script>
+    
     <script type="text/javascript">
         var manager = new game.Manager(new game.Game());
+        var river = new game.river.Game(manager.game, '/ajax.php?action=custom');
     </script>
 </head>
 <body>
