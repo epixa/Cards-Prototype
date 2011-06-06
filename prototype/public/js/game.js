@@ -70,6 +70,9 @@ window.game = window.game || {};
                     }
                 }
 
+                self.game.state = data.game.state;
+                self.game.details = data.game.details;
+
                 $(document).trigger('game.Manager.postPollGame', [self.game]);
 
                 return true;
@@ -108,33 +111,6 @@ window.game = window.game || {};
         self.state = {};
         self.details = {};
         self.totalPlayers = 0;
-
-        /**
-         * Populates the current game state
-         *
-         * The structure of the game state is unique to the current type of game.
-         * For that reason, game state can only be set here; it must be accessed
-         * and manipulated by the javascript defined by the game itself.
-         * 
-         * @param data
-         */
-        self.updateGameState = function(data){
-            self.state = data.state;
-            console.log(self.state);
-        };
-
-        /**
-         * Populates the current game details
-         *
-         * The structure of game details are universal and thus can be parsed and stored
-         * in a common format regardless of what game is being played.
-         *
-         * @param data
-         */
-        self.updateGameDetails = function(data){
-            self.details = data.details;
-            console.log(self.details);
-        };
 
         /**
          * Determines if the game has a player identified by the given id
@@ -205,7 +181,8 @@ window.game = window.game || {};
             id : null,
             name : null,
             isActive : null,
-            lastActivity : null
+            lastActivity : null,
+            state : {}
         };
         self.container = null;
 
