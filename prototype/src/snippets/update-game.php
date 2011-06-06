@@ -7,15 +7,15 @@ $_SESSION['identity']->isActive = true;
 if ($game) {
     $game->players->{$_SESSION['identity']->id} = $_SESSION['identity'];
 
-    $game->totalPlayers = 0;
+    $game->details->totalPlayers = 0;
     foreach ($game->players as $id => $player) {
-        $game->totalPlayers++;
+        $game->details->totalPlayers++;
 
         $difference = $currentMicrotime - $player->lastActivity;
 
         if ($difference > 15) {
             unset($game->players->$id);
-            $game->totalPlayers--;
+            $game->details->totalPlayers--;
         } else if ($difference > 5) {
             $player->isActive = false;
         }

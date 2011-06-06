@@ -1,5 +1,5 @@
 
-<h1>Playing: <?php echo htmlentities($game->name); ?></h1>
+<h1>Playing: <?php echo htmlentities($game->details->name); ?></h1>
 <div>Total players: <span id="total-players"><?php echo (int)$totalPlayers; ?></span></div>
 <a id="stop-game" href="#stop-game">Stop Game</a>
 
@@ -57,35 +57,40 @@
         }
     });
 
-    var originalCallback = room.loadGameDataCallback;
-    room.loadGameDataCallback = function(data){
-        if (!data.game) {
-            alert('Someone has stopped the current game');
-            window.location.href = '/';
-        } else {
-            for (var x in data.game.players) {
-                var player = data.game.players[x];
+    $(document).bind('game.Game.postAddPlayer', function(event, player){
+        player.setContainer(basePlayer.clone());
+        players.append(player.container);
+    });
 
-                if (!room.hasPlayer(player.id)) {
-                    var container = basePlayer.clone();
-                    players.append(container);
-                    room.addPlayer(player, container);
-                } else {
-                    room.getPlayer(player.id).populate(player);
-                }
+    $(document).bind('game.Player.postSetContainer', function(event, player){
+        player.container.attr('id', 'player-' + player.id);
+        player.container.html(player.data.name);
+    });
+
+    $(document).bind('game.Player.postPopulate', function(event, player){
+        if (player.container) {
+            player.container.removeClass('inactive');
+            if (!player.isActive()) {
+                player.container.addClass('inactive');
             }
-
-            for (var id in room.players) {
-                if (!(id in data.game.players)) {
-                    room.removePlayer(id);
-                }
-            }
-
-            $('#total-players').html(data.game.totalPlayers);
-            
-            originalCallback(data);
         }
-    };
-    room.beginPolling();
+    });
+
+    $(document).bind('game.Game.preRemovePlayer', function(event, player){
+        if (player.container) {
+            player.container.remove();
+        }
+    });
+
+    $(document).bind('game.Manager.postPollGame', function(event, game){
+        $('#total-players').html(game.totalPlayers);
+    });
+
+    $(document).bind('game.Manager.gameStopped', function(event, game){
+        alert('Someone has stopped the current game.');
+        window.location.href = '/';
+    });
+
+    manager.pollGame('/ajax.php?action=get-game');
 })();
 </script>

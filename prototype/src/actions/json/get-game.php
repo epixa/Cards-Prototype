@@ -2,4 +2,4 @@
 
 require ROOT_PATH . '/src/snippets/update-game.php';
 
-$data['game'] = $game;
+$data['game'] = $game ?: null;

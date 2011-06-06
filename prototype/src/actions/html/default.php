@@ -8,7 +8,7 @@ if (empty($_SESSION['identity'])) {
 require ROOT_PATH . '/src/snippets/update-game.php';
 
 if ($game) {
-    $totalPlayers = $game->totalPlayers;
+    $totalPlayers = $game->details->totalPlayers;
 }
 
 return 'default';

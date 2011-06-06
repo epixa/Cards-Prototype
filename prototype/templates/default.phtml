@@ -11,7 +11,7 @@
     <script src="/js/global.js" type="text/javascript"></script>
     <script src="/js/game.js" type="text/javascript"></script>
     <script type="text/javascript">
-        var room = new game.Room('/ajax.php?action=get-game');
+        var manager = new game.Manager(new game.Game());
     </script>
 </head>
 <body>
