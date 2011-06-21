@@ -6,7 +6,13 @@ if ($game->details->totalPlayers > 11) {
     throw new RuntimeException('Too many players');
 }
 
+$totalPlayers = 0;
 foreach ($game->players as $player) {
+    $totalPlayers++;
+    if ($totalPlayers == 1) {
+        $game->state->currentPlayerId = $player->id;
+    }
+    
     $player->hand = array();
 }
 

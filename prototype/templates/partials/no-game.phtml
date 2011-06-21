@@ -12,20 +12,9 @@
         $('#start-game').click(function(e){
             e.preventDefault();
 
-            $.post('/ajax.php?action=start-game', function(data){
-                if (data.status == 'error') {
-                    $(document).trigger('ajax.error', [data]);
-                } else if (data.status == 'success') {
-                    window.location.href = '/';
-                }
-            }, 'json');
+            manager.startGame();
         });
 
-        $(document).bind('game.Manager.gameStarted', function(event, game){
-            alert("Someone has started a new game:\n" + game.details.name);
-            window.location.href = '/';
-        });
-
-        manager.pollGameStarted('/ajax.php?action=get-game');
+        manager.pollGameStarted();
     })();
 </script>

@@ -13,16 +13,16 @@ window.game = window.game || {};
         var self = this;
 
         self.game = game;
+        self.playerId = null;
         self.pollingDuration = pollingDuration || 5000;
 
         /**
          * Loads all of the game data and executes the given callback on success
          * 
-         * @param url
          * @param callback
          */
-        self.loadGame = function(url, callback){
-            $.getJSON(url, function(data){
+        self.loadGame = function(callback){
+            $.getJSON('/ajax.php?action=init-game', function(data){
                 if (data.status == 'error') {
                     $(document).trigger('ajax.error', [data]);
                 } else if (data.status == 'success') {
@@ -43,8 +43,8 @@ window.game = window.game || {};
          *
          * @param url
          */
-        self.beginGamePolling = function(url){
-            setTimeout(self.pollGame, self.pollingDuration, url);
+        self.beginGamePolling = function(){
+            setTimeout(self.pollGame, self.pollingDuration, '/ajax.php?action=get-game');
         };
 
         /**
@@ -61,6 +61,7 @@ window.game = window.game || {};
                 if (data.status == 'error') {
                     $(document).trigger('ajax.error', [data]);
                 } else if (data.status == 'success') {
+                    console.log(data);
                     var continuePolling = callback(data);
 
                     if (continuePolling) {
@@ -80,7 +81,8 @@ window.game = window.game || {};
         self.pollGame = function(url){
             self.poll(url, function(data){
                 if (!data.game) {
-                    $(document).trigger('game.Manager.gameStopped', [self.game]);
+                    alert('Someone has stopped the current game.');
+                    window.location.href = '/';
                     return false;
                 }
 
@@ -91,21 +93,46 @@ window.game = window.game || {};
         };
 
         /**
-         * Polls for when a game is started at the given url
+         * Polls for when a game is started
          *
-         * If game data is retrieved, polling finishes and an appropriate event is triggered.
-         *
-         * @param url
+         * If game data is retrieved, polling finishes and the user is redirected.
          */
-        self.pollGameStarted = function(url){
-            self.poll(url, function(data){
+        self.pollGameStarted = function(){
+            self.poll('/ajax.php?action=get-game', function(data){
                 if (data.game) {
-                    $(document).trigger('game.Manager.gameStarted', [data.game]);
+                    alert("Someone has started a new game:\n" + data.game.details.name);
+                    window.location.href = '/';
                     return false;
                 }
 
                 return true;
             });
+        };
+
+        /**
+         * Starts the game and redirects the user on success
+         */
+        self.startGame = function(){
+            $.post('/ajax.php?action=start-game', function(data){
+                if (data.status == 'error') {
+                    $(document).trigger('ajax.error', [data]);
+                } else if (data.status == 'success') {
+                    window.location.href = '/';
+                }
+            }, 'json');
+        };
+
+        /**
+         * Stops the game and redirects the user on success
+         */
+        self.stopGame = function(){
+            $.post('/ajax.php?action=stop-game', function(data){
+                if (data.status == 'error') {
+                    $(document).trigger('ajax.error', [data]);
+                } else if (data.status == 'success') {
+                    window.location.href = '/';
+                }
+            }, 'json');
         };
     };
 
@@ -123,6 +150,8 @@ window.game = window.game || {};
         self.details = {};
         self.resources = {};
         self.totalPlayers = 0;
+        self.playersContainer = null;
+        self.basePlayer = null;
 
         /**
          * Populates all of the game properties from the given data
@@ -172,12 +201,17 @@ window.game = window.game || {};
          * @param data The player's data
          */
         self.addPlayer = function(data){
-            var player = new game.Player(data);
-            self.players[data.id] = player;
+            var container = self.basePlayer.clone();
+            var player = new game.Player(data, container);
+
+            player.container.attr('id', 'player-' + player.data.id);
+            player.container.html(player.data.name);
+
+            self.playersContainer.append(container);
+
+            self.players[player.data.id] = player;
 
             self.totalPlayers++;
-
-            $(document).trigger('game.Game.postAddPlayer', [player]);
         };
 
         /**
@@ -204,7 +238,9 @@ window.game = window.game || {};
         self.removePlayer = function(id){
             var player = self.getPlayer(id);
 
-            $(document).trigger('game.Game.preRemovePlayer', [player]);
+            if (player.container) {
+                player.container.remove();
+            }
 
             delete self.players[id];
 
@@ -228,17 +264,7 @@ window.game = window.game || {};
             lastActivity : null,
             state : {}
         };
-        self.container = null;
-
-        /**
-         * Sets the jquery container for this player
-         * 
-         * @param container
-         */
-        self.setContainer = function(container){
-            self.container = container;
-            $(document).trigger('game.Player.postSetContainer', [self]);
-        };
+        self.container = container;
 
         /**
          * Populates the player data
@@ -255,7 +281,12 @@ window.game = window.game || {};
                 }
             }
 
-            $(document).trigger('game.Player.postPopulate', [self]);
+            if (self.container) {
+                self.container.removeClass('inactive');
+                if (!self.isActive()) {
+                    self.container.addClass('inactive');
+                }
+            }
         };
 
         /**
@@ -268,9 +299,5 @@ window.game = window.game || {};
         };
 
         self.populate(data);
-
-        if (container) {
-            self.setContainer(container);
-        }
     };
 })(jQuery);

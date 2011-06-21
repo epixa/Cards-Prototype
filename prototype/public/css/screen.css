@@ -124,3 +124,7 @@ section > section {
 #players .player.inactive {
     border-color: red;
 }
+
+#players .player.current {
+    background-color: green;
+}

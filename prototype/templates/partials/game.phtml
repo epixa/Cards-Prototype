@@ -41,46 +41,18 @@
 
 <script type="text/javascript">
 (function(){
-    var players = $('#players');
-    var basePlayer = $('#player-base').clone();
+<?php if (!empty($_SESSION['identity']->id)): ?>
+    manager.playerId = '<?php echo htmlentities($_SESSION['identity']->id); ?>';
+<?php endif; ?>
+    manager.game.playersContainer = $('#players');
+    manager.game.basePlayer = $('#player-base').clone();
     $('#player-base').remove();
 
     $('#stop-game').click(function(e){
         e.preventDefault();
 
         if (confirm("Are you sure you want to stop the current game?")) {
-            $.post('/ajax.php?action=stop-game', function(data){
-                if (data.status == 'error') {
-                    $(document).trigger('ajax.error', [data]);
-                } else if (data.status == 'success') {
-                    window.location.href = '/';
-                }
-            }, 'json');
-        }
-    });
-
-    $(document).bind('game.Player.postSetContainer', function(event, player){
-        player.container.attr('id', 'player-' + player.id);
-        player.container.html(player.data.name);
-    });
-
-    $(document).bind('game.Player.postPopulate', function(event, player){
-        if (player.container) {
-            player.container.removeClass('inactive');
-            if (!player.isActive()) {
-                player.container.addClass('inactive');
-            }
-        }
-    });
-
-    $(document).bind('game.Game.postAddPlayer', function(event, player){
-        player.setContainer(basePlayer.clone());
-        players.append(player.container);
-    });
-
-    $(document).bind('game.Game.preRemovePlayer', function(event, player){
-        if (player.container) {
-            player.container.remove();
+            manager.stopGame();
         }
     });
 
@@ -88,14 +60,7 @@
         $('#total-players').html(game.totalPlayers);
     });
 
-    $(document).bind('game.Manager.gameStopped', function(event, game){
-        alert('Someone has stopped the current game.');
-        window.location.href = '/';
-    });
-
-    manager.loadGame('/ajax.php?action=init-game', function(){
-        manager.beginGamePolling('/ajax.php?action=get-game');
-    });
+    manager.loadGame(manager.beginGamePolling);
 
     $('#deal').click(function(e){
         e.preventDefault();
